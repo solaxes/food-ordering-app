@@ -1,7 +1,3 @@
-body {
-  margin: 0px;
-  padding: 0px;
-}
 .body-container {
   padding: 10px;
 }
@@ -53,4 +49,10 @@ body {
 
 .card-image {
   width: 200px;
+}
+
+.filter > .filter-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
 }

@@ -21,3 +21,10 @@ Disclaimer: This application is only for learning purpose, using data from swigg
   - Links
   - Address
   - Contact
+
+# React Hooks
+
+- React hooks are Normal JS functions, written by facebook developers
+- Following are two most important hooks in React
+  - useState() - Superpowerful state variables
+  - useEffect()

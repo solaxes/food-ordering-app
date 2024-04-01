@@ -31,7 +31,7 @@ const RestaurantMenu = () => {
           <Shimmer />
         ) : (
           resList.map((rList) => (
-            <li>
+            <li key={rList.id}>
               <Link to={"/restaurants/" + rList.id}>{rList.name}</Link>
             </li>
           ))

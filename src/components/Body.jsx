@@ -45,7 +45,7 @@ export default function Body() {
   return (
     <div className="body-container">
       <div className="filter">
-        <div class="search">
+        <div className="search">
           <input
             type="text"
             className="search-box"

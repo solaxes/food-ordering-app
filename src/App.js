@@ -2,16 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import AboutComponent from "./components/About";
 import ContactComponent from "./components/Contact";
 import ErrorComponent from "./components/errors/Error";
+import RestaurantMenu from "./components/RestaurantMenu";
 
 const AppLayout = () => {
   return (
     <div className="app">
       <Header></Header>
-      <Body />
+      <Outlet />
     </div>
   );
 };
@@ -21,15 +22,25 @@ const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
+    children: [
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/about",
+        element: <AboutComponent />,
+      },
+      {
+        path: "/contact",
+        element: <ContactComponent />,
+      },
+      {
+        path: "/restaurants/:resId",
+        element: <RestaurantMenu />,
+      },
+    ],
     errorElement: <ErrorComponent />,
-  },
-  {
-    path: "/about",
-    element: <AboutComponent />,
-  },
-  {
-    path: "/contact",
-    element: <ContactComponent />,
   },
 ]);
 

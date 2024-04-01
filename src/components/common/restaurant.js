@@ -1,3 +1,7 @@
+/**
+ * This file is not in use now, can be deleted anytime
+ */
+
 import Restaurants from "../../data/Restaurants";
 export const getRestaurant = (resId) => {
   // Best way to make an API call from here

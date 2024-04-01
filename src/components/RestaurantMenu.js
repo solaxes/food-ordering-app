@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import { getRestaurant, getRestaurantList } from "./common/restaurant";
 import { Link, useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import { useRestaurant, useRestaurantList } from "../helpers/restaurant";

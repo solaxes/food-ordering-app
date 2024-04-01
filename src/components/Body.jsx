@@ -3,15 +3,20 @@ import RestaurantCard from "./RestaurantCard";
 import Restaurants from "../data/Restaurants";
 import Shimmer from "./Shimmer";
 import { useRestaurantList } from "../helpers/restaurant";
+import { useOnlineStatus } from "../helpers/common";
 
 export default function Body() {
   const [searchText, setSearchText] = useState("");
 
   const resList = useRestaurantList();
+  const onlineStatus = useOnlineStatus();
 
   if (resList === null) {
     return <Shimmer />;
   }
+
+  if (onlineStatus === false)
+    return <h1>You are offline, please check your internet connection</h1>;
 
   return (
     <div className="body-container">

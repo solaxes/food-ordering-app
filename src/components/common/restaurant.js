@@ -5,5 +5,9 @@ export const getRestaurant = (resId) => {
 };
 
 export const getRestaurantList = () => {
-  return Restaurants.map((res) => ({ id: res.info.id, name: res.info.name }));
+  return Restaurants.map((res) => ({
+    id: res.info.id,
+    name: res.info.name,
+    costForTwo: res.info.costForTwo,
+  }));
 };

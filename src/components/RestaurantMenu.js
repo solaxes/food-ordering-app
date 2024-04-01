@@ -2,21 +2,15 @@ import { useEffect, useState } from "react";
 import { getRestaurant, getRestaurantList } from "./common/restaurant";
 import { Link, useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
+import { useRestaurant, useRestaurantList } from "../helpers/restaurant";
 const RestaurantMenu = () => {
-  let [resInfo, setResInfo] = useState(null);
-  let [resList, setResList] = useState(null);
   const { resId } = useParams();
 
-  useEffect(() => {
-    fetchRestaurant(resId);
-  }, [resId]);
+  const resInfo = useRestaurant(resId);
 
-  const fetchRestaurant = (resId) => {
-    const data = getRestaurant(resId);
-    const allRestaurants = getRestaurantList();
-    setResInfo(data);
-    setResList(allRestaurants);
-  };
+  const resList = useRestaurantList();
+
+  console.log(resList);
 
   if (resInfo === null) {
     return <Shimmer />;
@@ -31,8 +25,10 @@ const RestaurantMenu = () => {
           <Shimmer />
         ) : (
           resList.map((rList) => (
-            <li key={rList.id}>
-              <Link to={"/restaurants/" + rList.id}>{rList.name}</Link>
+            <li key={rList?.info?.id}>
+              <Link to={"/restaurants/" + rList?.info?.id}>
+                {rList?.info?.name} - {rList?.info?.costForTwo}
+              </Link>
             </li>
           ))
         )}
